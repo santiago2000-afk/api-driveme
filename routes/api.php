@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\DriversController;
 use App\Http\Controllers\RidesController;
+use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\AuthController;
 
 Route::post('/login', [AuthController::class, 'login']);
@@ -15,6 +16,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('users', UsersController::class);
     Route::apiResource('drivers', DriversController::class);
     Route::apiResource('rides', RidesController::class);
+    Route::apiResource('vehicles', VehicleController::class);
     Route::patch('/drivers/{driver}/availability', [DriversController::class, 'updateAvailability']);
     Route::get('/user/profile', [UsersController::class, 'profile']);
     Route::get('/rides/{ride}/locations', [RidesController::class, 'locations']);
